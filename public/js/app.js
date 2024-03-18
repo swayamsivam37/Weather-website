@@ -5,19 +5,17 @@
 // });
 
 const weatherReport = (location, errorPara, weatherPara, additionalPara) => {
-  fetch(`http://localhost:3000/weather?location=${location}`).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.Error) {
-          errorPara.textContent = JSON.stringify(data.Error);
-        } else {
-          errorPara.textContent = data.location;
-          weatherPara.textContent = data.forecast;
-          additionalPara.textContent = `Currently,It's ${data.timeOfDay} here !`;
-        }
-      });
-    }
-  );
+  fetch(`/weather?location=${location}`).then((response) => {
+    response.json().then((data) => {
+      if (data.Error) {
+        errorPara.textContent = JSON.stringify(data.Error);
+      } else {
+        errorPara.textContent = data.location;
+        weatherPara.textContent = data.forecast;
+        additionalPara.textContent = `Currently,It's ${data.timeOfDay} here !`;
+      }
+    });
+  });
 };
 
 const weatherForm = document.querySelector("form");
