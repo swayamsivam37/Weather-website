@@ -1,9 +1,3 @@
-// fetch("https://puzzle.mead.io/puzzle").then((response) => {
-//   response.json().then((data) => {
-//     console.log(data);
-//   });
-// });
-
 const weatherReport = (location, errorPara, weatherPara, additionalPara) => {
   fetch(`/weather?location=${location}`).then((response) => {
     response.json().then((data) => {
